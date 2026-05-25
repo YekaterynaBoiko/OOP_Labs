@@ -39,6 +39,6 @@ namespace Lab23_25_Task4
             => x.A == y.A && x.B == y.B;
 
         public static bool operator !=(ComplexNumber x, ComplexNumber y)
-            => !(x == y);
+            => !(x.A == y.A && x.B == y.B);
     }
 }

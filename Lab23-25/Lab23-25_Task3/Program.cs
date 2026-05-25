@@ -4,15 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Dice dice = new StandartDice();
+            Dice dice = new Dice();
             Console.WriteLine(dice.ThrowDice());
-
-            Dice dice1 = new CustomDice(4);
-            Console.WriteLine(dice1.ThrowDice());
-
-
-            Dice dice2 = new SeveralOfSameDice(2, 5);
-            Console.WriteLine(dice2.ThrowDice());
+            Console.WriteLine(dice.ThrowDice(7));
+            Console.WriteLine(dice.ThrowDice(7, 2));
         }
     }
 }
