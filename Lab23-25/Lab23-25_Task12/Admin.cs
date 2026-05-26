@@ -20,9 +20,9 @@ namespace Lab23_25_Task12
         {
             request.Reject(reason);
         }
-        public override void Role()
+        public override string Role
         {
-            Console.WriteLine("Admin");
+            get { return "Admin"; }
         }
     }
 }

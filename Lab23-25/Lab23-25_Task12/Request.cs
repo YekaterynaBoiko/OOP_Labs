@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab23_25_Task12
 {
+    
     public class Request
     {
         private static int _counter = 1;
@@ -14,7 +15,7 @@ namespace Lab23_25_Task12
         public RealEstate RealEstate { get;  }
 
         public bool isApproved { get; private set; }
-        public bool isProcessed { get; private set; }
+        public bool isRejected { get; private set; }
         public string RejectReason { get; private set; }
 
         public Request(User buyer, RealEstate realEstate)
@@ -24,34 +25,28 @@ namespace Lab23_25_Task12
             RealEstate = realEstate;
 
             isApproved = false;
-            isProcessed = false;
+            isRejected = false;
         }
 
         public void Approve()
         {
-            if (isProcessed)
+            if (isApproved || isRejected)
             {
                 Console.WriteLine("Ваша заявка вже оброблена");
                 return;
             }
 
-            if (Buyer.Balance >= RealEstate.Price)
-            {
-                Buyer.Balance -= RealEstate.Price;
-                RealEstate.Sell();
+            Buyer.Balance -= RealEstate.Price;
+            RealEstate.Sell();
 
-                decimal commission = RealEstate.CalculateCommission();
-                Console.WriteLine($"Комісія агенства: {commission}");
-                isApproved = true;
-                isProcessed = true;
-            }
-            else
-                Console.WriteLine("На вашому рахунку недостатньо коштів");
+            decimal commission = RealEstate.CalculateCommission();
+            Console.WriteLine($"Комісія агенства: {commission}");
+            isApproved = true;
         }
 
         public void Reject(string reason)
         {
-            if (isProcessed)
+            if (isApproved || isRejected)
             {
                 Console.WriteLine("Ваша заявка вже оброблена");
                 return;
@@ -60,8 +55,7 @@ namespace Lab23_25_Task12
 
             RealEstate.MakeAvailable(); // робить об'єкт доступним 
 
-            isApproved = false;
-            isProcessed = true;
+            isRejected = true;
 
             Console.WriteLine($"Причина: {reason}");
         }

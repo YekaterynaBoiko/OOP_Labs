@@ -19,9 +19,9 @@ namespace Lab23_25_Task12
             Password = password;
         }
 
-        public virtual void Role()
+        public virtual string Role
         {
-            Console.WriteLine("Person");
+            get { return "Person"; }
         }
     }
 }
