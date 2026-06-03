@@ -13,7 +13,6 @@ namespace Lab23_25_Task12
         {
             NumberOfRooms = numberOfRooms;
         }
-
         public override decimal CalculateCommission()
         {
             return Price * 0.015m;

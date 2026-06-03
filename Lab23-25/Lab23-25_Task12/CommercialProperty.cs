@@ -8,9 +8,9 @@ namespace Lab23_25_Task12
 {
     public class CommercialProperty : RealEstate
     {
-        public CommercialProperty(int id, string name, decimal price) : base(id, name, price)
-        {
-            
+        public CommercialProperty(int id, string name, decimal price) 
+            : base(id, name, price)
+        {  
         }
         public override decimal CalculateCommission()
         {
@@ -21,9 +21,5 @@ namespace Lab23_25_Task12
         {
             return Price * 20m + Price;
         }
-
-
     }
 }
-// price - 100
-// ? - 20

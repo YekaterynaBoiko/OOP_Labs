@@ -12,7 +12,6 @@ namespace Lab23_25_Task12
         public string Name { get; set; }
         public decimal Price { get; set; }
         public bool IsSold { get; private set; }
-        public bool isBlocked { get; private set; }
 
         public RealEstate(int id, string name, decimal price)
         {
@@ -20,7 +19,6 @@ namespace Lab23_25_Task12
             Name = name;
             Price = price;
             IsSold = false;
-            isBlocked = false;
         }
 
         public virtual string Describe()
@@ -48,16 +46,6 @@ namespace Lab23_25_Task12
         public void MakeAvailable()
         {
             IsSold = false;
-        }
-
-        public void Block()
-        {
-            isBlocked = true;
-        }
-
-        public void UnBlocked()
-        {
-            isBlocked = false;
         }
     }
 }

@@ -11,11 +11,10 @@ namespace Lab23_25_Task12
     {
         private static int _counter = 1;
         public int Number { get; }
-        public User Buyer { get;  }
+        public User Buyer { get; }
         public RealEstate RealEstate { get;  }
 
-        public bool isApproved { get; private set; }
-        public bool isRejected { get; private set; }
+        public bool? isApproved { get; private set; }
         public string RejectReason { get; private set; }
 
         public Request(User buyer, RealEstate realEstate)
@@ -24,13 +23,12 @@ namespace Lab23_25_Task12
             Buyer = buyer;
             RealEstate = realEstate;
 
-            isApproved = false;
-            isRejected = false;
+            isApproved = null;
         }
 
         public void Approve()
         {
-            if (isApproved || isRejected)
+            if (isApproved != null)
             {
                 Console.WriteLine("Ваша заявка вже оброблена");
                 return;
@@ -46,7 +44,7 @@ namespace Lab23_25_Task12
 
         public void Reject(string reason)
         {
-            if (isApproved || isRejected)
+            if (isApproved != null)
             {
                 Console.WriteLine("Ваша заявка вже оброблена");
                 return;
@@ -55,7 +53,7 @@ namespace Lab23_25_Task12
 
             RealEstate.MakeAvailable(); // робить об'єкт доступним 
 
-            isRejected = true;
+            isApproved = false;
 
             Console.WriteLine($"Причина: {reason}");
         }

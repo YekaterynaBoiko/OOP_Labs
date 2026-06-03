@@ -21,8 +21,6 @@ namespace Lab23_25_Task12
             request.Reject(reason);
         }
         public override string Role
-        {
-            get { return "Admin"; }
-        }
+            => "Admin"; 
     }
 }

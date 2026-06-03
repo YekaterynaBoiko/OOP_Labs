@@ -18,29 +18,22 @@ namespace Lab23_25_Task12
 
         public Request Submit(RealEstate realEstate) //* щоб метод щось повертав, нову заявку правило гарного тону
         {
-            if (realEstate.IsSold) //* isBlocked транзакція заблокована прибрати методи
-            {
-                Console.WriteLine("Об'єкт вже проданий або заблокований");
-                return null;
-            }
             decimal required = realEstate.RequiredBudget();
-            if (Balance < required)
+            if (Balance < required || realEstate.IsSold) 
             {
-                Console.WriteLine($"Відмова через нестачу коштів. На балансі: {Balance} " +
-                    $"\nСума яка потрібна для покупки: {required}");
+                //Console.WriteLine("Об'єкт вже проданий або заблокований");
+                //Console.WriteLine($"Відмова через нестачу коштів. На балансі: {Balance} " +
+                //    $"\nСума яка потрібна для покупки: {required}");
                 return null;
             }
             Request request = new Request(this, realEstate);
             Requests.Add(request);
-            //* відмітка що нерухомість продана, викликати Sell
             Console.WriteLine("Заявку створено");
 
             return request;
         }
 
         public override string Role
-        {
-            get { return "User"; } //* зробити як властивість
-        }
+           =>  "User";  
     }
 }

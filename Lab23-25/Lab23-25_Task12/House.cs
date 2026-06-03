@@ -9,7 +9,8 @@ namespace Lab23_25_Task12
     public class House : RealEstate
     {
         public double LandArea { get; set; }
-        public House(int id, string name, decimal price, double landArea) : base(id, name, price)
+        public House(int id, string name, decimal price, double landArea) 
+            : base(id, name, price)
         {
             LandArea = landArea;
         }

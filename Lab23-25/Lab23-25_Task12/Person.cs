@@ -20,8 +20,6 @@ namespace Lab23_25_Task12
         }
 
         public virtual string Role
-        {
-            get { return "Person"; }
-        }
+            => "Person"; 
     }
 }
