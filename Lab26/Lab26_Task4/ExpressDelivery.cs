@@ -8,12 +8,6 @@ namespace Lab26_Task4
 {
     public class ExpressDelivery : DeliveryBetweenCities
     {
-        public string UniqueNumber { get; }
-        public string SenderName { get; }
-        public string RecipientName { get; }
-        public double ParcelWeight { get; }
-        public double Distance { get; }
-
         public ExpressDelivery(string senderName, string recipientName, double parcelWeight, double distance)
             : base(senderName, recipientName, parcelWeight, distance)
         { 
@@ -21,19 +15,11 @@ namespace Lab26_Task4
 
         public override decimal ShippingCalculation()
         {
-            return CostDelivery.CostCar + (decimal)Distance * 5 
-                + ((decimal)ParcelWeight * CostDelivery.PricePerKilogram) * CostDelivery.CostExpress;
+            return Math.Round(CostDelivery.CostCar + (decimal)Distance * CostDelivery.PricePerKmCar
+                + ((decimal)ParcelWeight * CostDelivery.PricePerKilogram) * CostDelivery.CostExpress, 2);
         }
 
         public override string DeliveryTime() => "завтра";
-
-        public override void PrintInfo()
-        {
-            Console.WriteLine($"\n[{UniqueNumber}] Експрес доставка" +
-                $"\n{SenderName} -> {RecipientName}" +
-                $"\nВага: {ParcelWeight} кг | Дистанція: {Distance} км" +
-                $"\nВартість доставки: {ShippingCalculation()} грн" +
-                $"\nЧас доставки: {DeliveryTime()}");
-        }
+        public override string DeliveryType => "Експрес";
     }
 }

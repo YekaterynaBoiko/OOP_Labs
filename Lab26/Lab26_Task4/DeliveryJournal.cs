@@ -8,24 +8,30 @@ namespace Lab26_Task4
 {
     public static class DeliveryJournal  
     {
-        private static List<Delivery> deliveries = new();
+        private static int _Number = 100;
+        private static string GenerateUniqueNumber()
+        {
+            return $"DEL-{_Number++}";
+        }
+        private static List<Delivery> _deliveries = new();
         public static void Add(Delivery delivery)
         {
-            deliveries.Add(delivery);
-        } // щоб коли створювали нову доставку то автоматично записує в базу, сам має додавася
+            delivery.UniqueNumber = GenerateUniqueNumber();
+            _deliveries.Add(delivery);
+        } 
 
-        public static int Count => deliveries.Count;  
+        public static int Count => _deliveries.Count;  
         public static decimal TotalRevenue()
         {
             decimal total = 0.0m;
-            foreach (var delivery in deliveries)
+            foreach (var delivery in _deliveries)
                 total += delivery.ShippingCalculation();
 
             return total;
         }
         public static void PrintAllInfo()
         {
-            foreach (var delivery in deliveries)
+            foreach (var delivery in _deliveries)
                 delivery.PrintInfo();
         }
     }

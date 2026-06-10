@@ -12,6 +12,5 @@ namespace Lab26_Task4
             : base(senderName, recipientName, parcelWeight, distance)
         {
         }
-        public abstract override decimal ShippingCalculation();
     }
 }
