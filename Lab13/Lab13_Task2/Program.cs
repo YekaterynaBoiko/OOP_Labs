@@ -2,7 +2,7 @@
 
 namespace Lab13_Task2
 {
-    internal class Program //Task2
+    internal class Program 
     {
 
         public class TaskItem
@@ -10,8 +10,6 @@ namespace Lab13_Task2
             public string nameTask;
             public int DurationInHours;
             public bool isCompleted;
-
-            
             public TaskItem(string nameTask, int DurationInHours)
             {
                 this.nameTask = nameTask;
@@ -106,7 +104,7 @@ namespace Lab13_Task2
                 Console.WriteLine("Немає задач");
                 return;
             }
-            for (int i = 0; i < projects.tasks.Count; i++) Console.WriteLine($"{i + 1}. {projects.tasks[i].Description()}"); //????
+            for (int i = 0; i < projects.tasks.Count; i++) Console.WriteLine($"{i + 1}. {projects.tasks[i].Description()}"); 
             Console.WriteLine("Введіть номер здачі для позначення як Done: ");
             int number = Convert.ToInt32(Console.ReadLine());
             if (number > 0 && number <= projects.tasks.Count)
@@ -125,7 +123,12 @@ namespace Lab13_Task2
 
             while (true)
             {
-                Console.WriteLine("\nМеню: \n1. Додати задачу \n2. Позначити задачу виконаною \n3. Показати Overview \n4. Вихід \nВиберіть опцію:");
+                Console.WriteLine("\nМеню: " +
+                    "\n1. Додати задачу " +
+                    "\n2. Позначити задачу виконаною " +
+                    "\n3. Показати Overview " +
+                    "\n4. Вихід " +
+                    "\nВиберіть опцію:");
                 string choice = Console.ReadLine();
 
                 switch (choice)

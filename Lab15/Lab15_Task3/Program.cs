@@ -8,7 +8,6 @@
             DateTime maxTime = DateTime.MaxValue;
             TimeSpan result = maxTime - now;    
             Console.WriteLine($"До кінця світу залишиось: {result}");
-
         }
     }
 }

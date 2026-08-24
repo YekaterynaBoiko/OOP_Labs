@@ -26,13 +26,11 @@
                 double balanceUAH = SumInUSD * CurrentRateUSD;
                 Console.WriteLine($"Ваш баланс у гривнях: {balanceUAH}грн");
             }
-
             public static void RateChangeInBank(double newRate)
             {
                 CurrentRateUSD = newRate;
                 Console.WriteLine($"Новий курс долару до гривні: {CurrentRateUSD}");
             }
-
             public static void ShowTransactionsByBank()
             {
                 Console.WriteLine($"Загальна кількість транзакцій: {countOperation}");
@@ -41,7 +39,7 @@
 
         public class Admin
         {
-            static Dictionary<string, BankAccount> accounts = new Dictionary<string, BankAccount>(); //одна на всіх
+            static Dictionary<string, BankAccount> accounts = new Dictionary<string, BankAccount>(); 
             public static BankAccount AccountCreation(double sumBalance = 0)
             {
                 Random random = new Random();

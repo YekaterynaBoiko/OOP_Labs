@@ -70,7 +70,14 @@ namespace Lab14_Task2
 
             while(true)
             {
-                Console.WriteLine("\nChoose a number: \n1. Addition \n2. Subtraction \n3. Multiplication \n4. Divide \n5. GetPerimeter \n6. GetArea \n7. Exit the program");
+                Console.WriteLine("\nChoose a number: " +
+                    "\n1. Addition " +
+                    "\n2. Subtraction " +
+                    "\n3. Multiplication " +
+                    "\n4. Divide " +
+                    "\n5. GetPerimeter " +
+                    "\n6. GetArea " +
+                    "\n7. Exit the program");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {

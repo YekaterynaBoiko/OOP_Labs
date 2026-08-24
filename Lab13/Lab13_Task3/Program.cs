@@ -4,7 +4,7 @@ using static Lab13_Task3.Program;
 
 namespace Lab13_Task3
 {
-    internal class Program //Task3
+    internal class Program 
     {
 
         public class Person
