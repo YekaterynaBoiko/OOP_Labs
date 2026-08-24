@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6-7", "Lab6-7\Lab6-7.csproj", "{C84B71BD-4526-46B3-87E4-AEE25EF7E38C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6-7_Task4", "Lab6-7_Task4\Lab6-7_Task4.csproj", "{C84B71BD-4526-46B3-87E4-AEE25EF7E38C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6-7_Task1", "Lab6-7_Task1\Lab6-7_Task1.csproj", "{880B710C-F7F4-4077-88C8-F12EDCB5B3B2}"
 EndProject
