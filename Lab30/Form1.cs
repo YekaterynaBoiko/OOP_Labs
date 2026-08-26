@@ -127,13 +127,12 @@ namespace Lab30
         // ====== Обробники зміни тексту в полях вводу ======
         private void txtM_TextChanged(object sender, EventArgs e)
         {
-            int result = ValidateKeyPress(txtM.Text); // Доробити щоб можна було нові значення
+            int result = ValidateKeyPress(txtM.Text); 
             if (result > -9999)
                 m = result;
             else
             {
-                m = 0;
-                txtM.Text = "0";
+                txtM.Text = m.ToString();
                 txtM.SelectAll();
             }
         }
@@ -144,8 +143,7 @@ namespace Lab30
                 cm = result;
             else
             {
-                cm = 0;
-                txtCm.Text = "0";
+                txtCm.Text = cm.ToString();
                 txtCm.SelectAll();
             }
         }
@@ -156,8 +154,7 @@ namespace Lab30
                 convertedCm = result;
             else
             {
-                convertedCm = 0;
-                txtConvertedCm.Text = "0";
+                txtConvertedCm.Text = convertedCm.ToString();
                 txtConvertedCm.SelectAll();
             }
         }
@@ -253,6 +250,5 @@ namespace Lab30
             InitializeComponent();
             BuildInterface();
         }
-        
     }
 }
