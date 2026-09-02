@@ -47,5 +47,56 @@ namespace Digger
         }
 
         public bool DeadInConflict(ICreature conflictedObject) => false;
+
+        // ===== Task 3 =====
+        public class Sack : ICreature
+        {
+            public string GetImageFileName() => "Sack.png";
+            public int GetDrawingPriority() => 1;
+            private int _fallDistance = 0;
+            public CreatureCommand Act(int x, int y)
+            {
+                if (y + 1 <= Game.MapHeight)
+                {
+                    var below = Game.Map[x, y + 1];
+
+                    if (below == null || below is Player)
+                    {
+                        _fallDistance++;
+
+                        return new CreatureCommand { DeltaX = 0, DeltaY = 1 };
+                    }
+                }
+
+                var command = new CreatureCommand(); // when the sack landed
+                if (_fallDistance > 1)
+                    command.TransformTo = new Gold();
+
+                _fallDistance = 0;
+                return command;
+            }
+
+            public bool DeadInConflict(ICreature conflictedObject) => false;
+        }
+
+        public class Gold : ICreature
+        {
+            public string GetImageFileName() => "Gold.png";
+            public int GetDrawingPriority() => 1;
+            public CreatureCommand Act(int x, int y)
+            {
+                return new CreatureCommand { DeltaX = 0, DeltaY = 0 };
+            }
+            public bool DeadInConflict(ICreature conflictedObject)
+            {
+                if (conflictedObject is Player)
+                {
+                    Game.Scores += 10;
+                    return true;
+                }
+                return false;
+            }
+
+        }
     }
 }

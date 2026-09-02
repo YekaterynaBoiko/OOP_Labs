@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+п»їusing Newtonsoft.Json;
 using System.Drawing.Printing;
 namespace MK6
 {
@@ -40,13 +40,13 @@ namespace MK6
             this.Controls.Add(txtUah);
 
             btnGetData = new Button();
-            btnGetData.Text = "Отримати дані";
+            btnGetData.Text = "РћС‚СЂРёРјР°С‚Рё РґР°РЅС–";
             btnGetData.Size = new Size(220, 55);
             btnGetData.Location = new Point(750, 30);
             this.Controls.Add(btnGetData);
 
             btnGetResult = new Button();
-            btnGetResult.Text = "Конвертувати";
+            btnGetResult.Text = "РљРѕРЅРІРµСЂС‚СѓРІР°С‚Рё";
             btnGetResult.Size = new Size(170, 30);
             btnGetResult.Location = new Point(1015, 220);
             this.Controls.Add(btnGetResult);
@@ -60,8 +60,8 @@ namespace MK6
             comboBoxDirection.Location = new Point(750, 222);
             comboBoxDirection.Size = new Size(220, 40);
             comboBoxDirection.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxDirection.Items.Add("UAH -> Валюта");
-            comboBoxDirection.Items.Add("Валюта -> UAH");
+            comboBoxDirection.Items.Add("UAH -> Р’Р°Р»СЋС‚Р°");
+            comboBoxDirection.Items.Add("Р’Р°Р»СЋС‚Р° -> UAH");
 
             comboBoxDirection.SelectedIndex = 0;
             this.Controls.Add(comboBoxDirection);
@@ -70,7 +70,7 @@ namespace MK6
             this.Controls.Add(lblUah);
             lblCurrency = new Label { Text = "", Location = new Point(977, 62), AutoSize = true };
             this.Controls.Add(lblCurrency);
-            lblDirection = new Label { Text = "Напрямок конвертації", Location = new Point(750, 200), AutoSize = true };
+            lblDirection = new Label { Text = "РќР°РїСЂСЏРјРѕРє РєРѕРЅРІРµСЂС‚Р°С†С–С—", Location = new Point(750, 200), AutoSize = true };
             this.Controls.Add(lblDirection);
 
             btnGetData.Click += btnGetData_Click;
@@ -79,43 +79,42 @@ namespace MK6
             comboBoxDirection.SelectedIndexChanged += comboBoxDirection_SelectedIndexChanged;
         }
 
-
         private async void btnGetData_Click(object sender, EventArgs e)
         {
             try
             {
                 string apiUrl = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
-                var response = await GetExchangeRates(apiUrl); // Додаємо 'await'
-                                                               // Десеріалізація JSON у список об'єктів
+                var response = await GetExchangeRates(apiUrl); // Р”РѕРґР°С”РјРѕ 'await'
+                                                               // Р”РµСЃРµСЂС–Р°Р»С–Р·Р°С†С–СЏ JSON Сѓ СЃРїРёСЃРѕРє РѕР±'С”РєС‚С–РІ
                 _exchangeRates = JsonConvert.DeserializeObject<List<ExchangeRate>>(response);
 
-                // Виведення даних (наприклад, у TextBox)
+                // Р’РёРІРµРґРµРЅРЅСЏ РґР°РЅРёС… (РЅР°РїСЂРёРєР»Р°Рґ, Сѓ TextBox)
                 foreach (var rate in _exchangeRates)
                 {
-                    textBoxResult.AppendText($"Валюта: {rate.txt} ({rate.cc}), " +
-                        $"Курс: {rate.rate}, " +
-                        $"Дата: {rate.exchangeDate}\r\n");
+                    textBoxResult.AppendText($"Р’Р°Р»СЋС‚Р°: {rate.txt} ({rate.cc}), " +
+                        $"РљСѓСЂСЃ: {rate.rate}, " +
+                        $"Р”Р°С‚Р°: {rate.exchangeDate}\r\n");
                 }
 
-                // Очищення ComboBox перед заповненням
+                // РћС‡РёС‰РµРЅРЅСЏ ComboBox РїРµСЂРµРґ Р·Р°РїРѕРІРЅРµРЅРЅСЏРј
                 comboBoxCurrencies.Items.Clear();
 
-                // Заповнення ComboBox назвами валют        
+                // Р—Р°РїРѕРІРЅРµРЅРЅСЏ ComboBox РЅР°Р·РІР°РјРё РІР°Р»СЋС‚        
 
-                // Прив'язуємо джерело даних для ComboBox до списку об'єктів exchangeRates
+                // РџСЂРёРІ'СЏР·СѓС”РјРѕ РґР¶РµСЂРµР»Рѕ РґР°РЅРёС… РґР»СЏ ComboBox РґРѕ СЃРїРёСЃРєСѓ РѕР±'С”РєС‚С–РІ exchangeRates
                 comboBoxCurrencies.DataSource = _exchangeRates;
 
-                // Вказуємо, яке поле об'єкта ExchangeRate буде відображатися в ComboBox (назва валюти)
+                // Р’РєР°Р·СѓС”РјРѕ, СЏРєРµ РїРѕР»Рµ РѕР±'С”РєС‚Р° ExchangeRate Р±СѓРґРµ РІС–РґРѕР±СЂР°Р¶Р°С‚РёСЃСЏ РІ ComboBox (РЅР°Р·РІР° РІР°Р»СЋС‚Рё)
                 comboBoxCurrencies.DisplayMember = "txt";
 
-                // Вказуємо, яке поле об'єкта ExchangeRate буде використовуватися як значення (курс валюти)
+                // Р’РєР°Р·СѓС”РјРѕ, СЏРєРµ РїРѕР»Рµ РѕР±'С”РєС‚Р° ExchangeRate Р±СѓРґРµ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚РёСЃСЏ СЏРє Р·РЅР°С‡РµРЅРЅСЏ (РєСѓСЂСЃ РІР°Р»СЋС‚Рё)
                 comboBoxCurrencies.ValueMember = "rate";
 
 
-                // Встановлення вибору за замовчуванням
+                // Р’СЃС‚Р°РЅРѕРІР»РµРЅРЅСЏ РІРёР±РѕСЂСѓ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј
                 if (comboBoxCurrencies.Items.Count > 0)
                 {
-                    comboBoxCurrencies.SelectedIndex = 0; // Вибрати перший елемент
+                    comboBoxCurrencies.SelectedIndex = 0; // Р’РёР±СЂР°С‚Рё РїРµСЂС€РёР№ РµР»РµРјРµРЅС‚
                 }
             }
             catch (Exception ex)
@@ -124,43 +123,60 @@ namespace MK6
             }
         }
 
+        private void ToggleControls()
+        {
+            if (comboBoxDirection.SelectedIndex == 0)
+            {
+                txtUah.Enabled = false;
+                txtStartingCurrency.Enabled = true;
+            }
+            else
+            {
+                txtUah.Enabled = true;
+                txtStartingCurrency.Enabled = false;
+            }
+        }
         private void btnGetResult_Click(object sender, EventArgs e)
         {
             try
             {
                 if (_exchangeRates == null || _exchangeRates.Count == 0)
                 {
-                    MessageBox.Show("Спочатку натисніть «Отримати дані».");
-                    return;
-                }
-
-                if (!double.TryParse(txtStartingCurrency.Text, out double amount))
-                {
-                    MessageBox.Show("Введіть правильну суму.");
+                    MessageBox.Show("РЎРїРѕС‡Р°С‚РєСѓ РЅР°С‚РёСЃРЅС–С‚СЊ В«РћС‚СЂРёРјР°С‚Рё РґР°РЅС–В».");
                     return;
                 }
 
                 if (comboBoxCurrencies.SelectedItem == null)
                 {
-                    MessageBox.Show("Оберіть валюту.");
+                    MessageBox.Show("РћР±РµСЂС–С‚СЊ РІР°Р»СЋС‚Сѓ.");
                     return;
                 }
 
                 ExchangeRate selectedCurrency =
                     (ExchangeRate)comboBoxCurrencies.SelectedItem;
 
-                double rate = selectedCurrency.rate;
-
+                double rate = selectedCurrency.rate; 
+                
                 if (comboBoxDirection.SelectedIndex == 0)
                 {
+                    if (!double.TryParse(txtStartingCurrency.Text, out double amount))
+                    {
+                        MessageBox.Show("Р’РІРµРґС–С‚СЊ РїСЂР°РІРёР»СЊРЅСѓ СЃСѓРјСѓ.");
+                        return;
+                    }
                     double result = amount / rate;
                     txtUah.Text = result.ToString("F2");
                 }
 
                 else
                 {
+                    if (!double.TryParse(txtUah.Text, out double amount))
+                    {
+                        MessageBox.Show("Р’РІРµРґС–С‚СЊ РїСЂР°РІРёР»СЊРЅСѓ СЃСѓРјСѓ.");
+                        return;
+                    } 
                     double result = amount * rate;
-                    txtUah.Text = result.ToString("F2");
+                    txtStartingCurrency.Text = result.ToString("F2");
                 }
             }
             catch (Exception ex)
@@ -190,22 +206,7 @@ namespace MK6
 
         private void comboBoxDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxCurrencies.SelectedItem == null)
-                return;
-
-            ExchangeRate selectedCurrency =
-                (ExchangeRate)comboBoxCurrencies.SelectedItem;
-
-            if (comboBoxDirection.SelectedIndex == 0)
-            {
-                lblCurrency.Text = "UAH";
-                lblUah.Text = selectedCurrency.cc;
-            }
-            else
-            {
-                lblCurrency.Text = selectedCurrency.cc;
-                lblUah.Text = "UAH";
-            }
+            ToggleControls();
         }
 
         private async Task<string> GetExchangeRates(string url)
