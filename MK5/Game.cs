@@ -30,6 +30,27 @@ S TTST  TG
  TGST MTTT
  T  TMTTTT";
 
+        private const string myMap = @"
+P    TTTGTTTGT        TTGTT       TGTT
+  TT TTTTTTTG TTTTTTG     T  TGTT    M
+  TT      G   TGTTTTTTTTS    TTGT  TTT
+ TT GGTTG T TTTTTTTTGTTTSTTTTSGTT TGTT
+TTT  TSTT    TS   TTTTT TTTT      TMTT
+ TST TT    G    TTTTSTT   TTS TTTTTGTT
+ TT     TSTTST TSTTTTTTT    TTTTTTTTTG
+ TTTTTGTTTTTTT TTTTTTTSST T  TTSTTTTGT
+  TTTTGTTTSTTT GTTTTTTTTTTT  TTTGTTTTT
+T TTTTTTSTTTTT TTTTGTTTTTTTTGTTMTTTTTT
+T TTSSTTTT                      TSTTGT
+TMTTTTTTTT TTTTTGTT  TGT TSGTT   TTTTT
+T           GTTTTTTS TTT TTTTSTMTSTTGT
+TTT  GTTSTTTTTTTTTTSSTTT TTSTTT TTTTTT
+TTGT TTTTSTTGTTGTTTTTTGT        TTSTTT
+TT T  T TTT TTTTTTTTTTTTTGTTTGTTTTMTTT
+TTT T TTT     TTT TTTT T TTTTTTTTGTTTG
+";
+
+
         public static ICreature[,] Map;
         public static int Scores;
         public static bool IsOver;
@@ -40,7 +61,7 @@ S TTST  TG
 
         public static void CreateMap()
         {
-            Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrain);
+            Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrainSackGoldMonster);
         }
     }
 }
