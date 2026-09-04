@@ -13,10 +13,8 @@
                 sum += n; //число до суми
                 count++;
             }
-
-            while (sum % 2 != 0); 
+            while (sum % 2 != 0);
             Console.WriteLine(count % 2 == 0); // к-сть парна чи нє
-
         }
     }
 }

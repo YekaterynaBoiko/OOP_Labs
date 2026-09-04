@@ -11,7 +11,6 @@
             {
                 Console.Write($"{n} ");
             }
-            
         }
     }
 }

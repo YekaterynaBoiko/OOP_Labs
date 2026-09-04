@@ -7,7 +7,7 @@
             double x = Convert.ToDouble(Console.ReadLine()); //-1 <= x <= 1 ||
             double y = Convert.ToDouble(Console.ReadLine()); //-1 <= y <= 1 || x*x+y*y=>1
 
-            if (x >= -1 && x <= 1 && y >= -1 && y <= 1 && x*x+y*y >= 1)
+            if (x >= -1 && x <= 1 && y >= -1 && y <= 1 && x * x + y * y >= 1)
             {
                 Console.WriteLine("Круто");
             }
@@ -15,7 +15,6 @@
             {
                 Console.WriteLine("Думай ще");
             }
-
         }
     }
 }

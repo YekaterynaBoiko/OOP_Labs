@@ -1,4 +1,4 @@
-﻿namespace Task9
+﻿namespace Lab2_4_Task9
 {
     internal class Program
     {
@@ -14,10 +14,10 @@
             //}
             //Console.WriteLine(sum);
 
-
             int n;
             int sum = 0;
-            while ((n = Convert.ToInt32(Console.ReadLine())) != 0)  { sum += n; } // 1- інструкція, 2 - вираз результатом є значення користувача, 3 - 
+            while ((n = Convert.ToInt32(Console.ReadLine())) != 0) { sum += n; } // 1- інструкція,
+            // 2 - вираз результатом є значення користувача
             Console.WriteLine(sum);
             //(n = Convert.ToInt32(Console.ReadLine())) інструкція та вираз вираз одночасно
         }

@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            double x = Convert.ToDouble(Console.ReadLine()); 
+            double x = Convert.ToDouble(Console.ReadLine());
             double y = Convert.ToDouble(Console.ReadLine()); // 2x <= y <= 3x
 
-            if (y > 2*x && y < 3*x && y > 0)
+            if (y > 2 * x && y < 3 * x && y > 0)
             {
                 Console.WriteLine("Вітаю!");
             }

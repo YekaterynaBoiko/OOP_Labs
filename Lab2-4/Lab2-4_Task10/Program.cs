@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-
-namespace Lab2_4_Task10
+﻿namespace Lab2_4_Task10
 {
     internal class Program
     {
@@ -15,7 +13,6 @@ namespace Lab2_4_Task10
             {
                 sum += n;
                 count++;
-                
             }
             if (count > 0) Console.WriteLine(average = sum / count);
             // 1 2 3 -1 s

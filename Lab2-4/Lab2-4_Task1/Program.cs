@@ -9,9 +9,8 @@
             if (a > b)
             {
                 Console.WriteLine(a);
-                
             }
-            else if (a < b) 
+            else if (a < b)
             {
                 Console.WriteLine(b);
             }

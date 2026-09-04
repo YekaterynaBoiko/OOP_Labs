@@ -4,11 +4,11 @@
     {
         static void Main(string[] args)
         {
-            int n = Convert.ToInt32 (Console.ReadLine());
+            int n = Convert.ToInt32(Console.ReadLine());
             int i = 1;
-            while(i <= n)
+            while (i <= n)
             {
-                Console.WriteLine (i);
+                Console.WriteLine(i);
                 i++;
             }
         }

@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            double x = Convert.ToDouble (Console.ReadLine());
-            double y = Convert.ToDouble (Console.ReadLine());
+            double x = Convert.ToDouble(Console.ReadLine());
+            double y = Convert.ToDouble(Console.ReadLine());
             double km = x; // x це початкове
-            int day = 1; // day 1
+            int day = 1;
             while (y > km)
             {
                 km += 0.1 * km;
