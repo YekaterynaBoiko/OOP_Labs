@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab27_Task5
+{
+    public class RegularCustomer : ICustomer
+    {
+        public double Discount()
+        {
+            return 5;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Lab32_Task1/Lab32_Task1.csproj" />
+  <Project Path="Lab32_Task2/Lab32_Task2.csproj" Id="575d1aaf-f79b-4a12-9ed8-a2d4057c3b71" />
+  <Project Path="Lab32_Task3/Lab32_Task3.csproj" Id="18edadd4-66fe-43c5-8c44-471c80584f8f" />
+  <Project Path="Lab32_Task4/Lab32_Task4.csproj" Id="d121aced-c4af-48e3-b633-ff5602466c22" />
+</Solution>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+  <book>
+    <title>Захар Беркут</title>
+    <author>Іван Франко</author>
+    <year>1883</year>
+  </book>
+  <book>
+    <title>Хіба ревуть воли, як ясла повні?</title>
+    <author>Панас Мирний</author>
+    <year>1880</year>
+  </book>
+  <book>
+    <title>Місто</title>
+    <author>Валер'ян Підмогильний</author>
+    <year>1928</year>
+  </book>
+</books>

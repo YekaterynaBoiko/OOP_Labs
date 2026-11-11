@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab23_25_Task12
+{
+    public class User : Person
+    { 
+        public decimal Balance { get; set; }
+        public List<Request> Requests { get; set; } = new List<Request>();
+        public User(string name, string login, string password, decimal balance) 
+            : base (name, login, password)
+        {
+            Balance = balance;
+        }
+
+        public Request Submit(RealEstate realEstate) //* щоб метод щось повертав, нову заявку правило гарного тону
+        {
+            decimal required = realEstate.RequiredBudget();
+            if (Balance < required || realEstate.IsSold) 
+            {
+                //Console.WriteLine("Об'єкт вже проданий або заблокований");
+                //Console.WriteLine($"Відмова через нестачу коштів. На балансі: {Balance} " +
+                //    $"\nСума яка потрібна для покупки: {required}");
+                return null;
+            }
+            Request request = new Request(this, realEstate);
+            Requests.Add(request);
+            Console.WriteLine("Заявку створено");
+
+            return request;
+        }
+
+        public override string Role
+           =>  "User";  
+    }
+}

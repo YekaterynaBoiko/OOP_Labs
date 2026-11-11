@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M3.Payments.Contracts", "M3.Payments.Contracts\M3.Payments.Contracts.csproj", "{B044E2EB-4599-447F-B538-D032ACDE1002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M3.Payments.App", "M3.Payments.App\M3.Payments.App.csproj", "{4DD0A2BC-F2DD-4C3B-8ECA-73A4937CE406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M4.Shop", "M4.Shop\M4.Shop.csproj", "{AD378618-9A7A-42D1-82A6-0489D1F1F7CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B044E2EB-4599-447F-B538-D032ACDE1002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B044E2EB-4599-447F-B538-D032ACDE1002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B044E2EB-4599-447F-B538-D032ACDE1002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B044E2EB-4599-447F-B538-D032ACDE1002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD0A2BC-F2DD-4C3B-8ECA-73A4937CE406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD0A2BC-F2DD-4C3B-8ECA-73A4937CE406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD0A2BC-F2DD-4C3B-8ECA-73A4937CE406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD0A2BC-F2DD-4C3B-8ECA-73A4937CE406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD378618-9A7A-42D1-82A6-0489D1F1F7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD378618-9A7A-42D1-82A6-0489D1F1F7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD378618-9A7A-42D1-82A6-0489D1F1F7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD378618-9A7A-42D1-82A6-0489D1F1F7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
